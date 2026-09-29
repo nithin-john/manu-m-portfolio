@@ -20,6 +20,7 @@ import Modal            from './components/ProjectModal.js';
 import Cursor           from './components/CustomCursor.js';
 import Preloader        from './components/Preloader.js';
 import CrimeSceneEngine from './components/CrimeSceneEngine.js';
+import InteractiveSectionEngine from './components/InteractiveSectionEngine.js';
 
 async function boot() {
   // 1. Mount all core UI components
@@ -69,13 +70,15 @@ async function boot() {
   const preloader = new Preloader();
   await preloader.run();
 
-  // 5. Scroll reveals for all sections
+  // 5. Scroll reveals for all sections & Interactive Section Load Engine
   initReveals();
+  const sectionEngine = new InteractiveSectionEngine();
+  sectionEngine.init();
 
   // 6. Hero entrance animation
   hero.animate();
 
-  // 7. Start Bat-Family Crime Scene Investigation Canvas & HUD
+  // 7. Start Lone Detective Batman Crime Scene Investigation Engine
   const crimeEngine = new CrimeSceneEngine();
   crimeEngine.init();
 }
